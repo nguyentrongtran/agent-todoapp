@@ -11,10 +11,6 @@ function addTodo() {
     // Create list item
     const li = document.createElement('li');
 
-    // Create checkbox
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-
     // Create span for text
     const span = document.createElement('span');
     span.textContent = todoText;
@@ -30,12 +26,11 @@ function addTodo() {
     });
 
     // Add toggle completion functionality
-    checkbox.addEventListener('change', function() {
+    span.addEventListener('click', function() {
         li.classList.toggle('completed');
     });
 
     // Append elements to li
-    li.appendChild(checkbox);
     li.appendChild(span);
     li.appendChild(deleteBtn);
 
@@ -48,6 +43,13 @@ function addTodo() {
 
 // Event listener for add button
 addBtn.addEventListener('click', addTodo);
+
+// Event listener for Enter key in input
+todoInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        addTodo();
+    }
+});
 
 // Event listener for enter key in input
 todoInput.addEventListener('keypress', function(e) {

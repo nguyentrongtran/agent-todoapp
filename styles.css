@@ -50,6 +50,40 @@ h1 {
 
 #todo-list li {
     display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#todo-list li:last-child {
+    border-bottom: none;
+}
+
+#todo-list li span {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+#todo-list li {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
