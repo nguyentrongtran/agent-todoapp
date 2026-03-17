@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (todoText === '') return;
 
         const li = document.createElement('li');
-        li.className = 'todo-item';
+        li.className = 'todo-item new';
 
         const span = document.createElement('span');
         span.textContent = todoText;
@@ -44,12 +44,20 @@ document.addEventListener('DOMContentLoaded', function() {
         deleteBtn.textContent = 'Xóa';
         deleteBtn.className = 'delete-btn';
         deleteBtn.addEventListener('click', function() {
-            todoList.removeChild(li);
+            li.classList.add('removing');
+            setTimeout(() => {
+                todoList.removeChild(li);
+            }, 300);
         });
 
         li.appendChild(span);
         li.appendChild(deleteBtn);
         todoList.appendChild(li);
+
+        // Remove 'new' class after animation
+        setTimeout(() => {
+            li.classList.remove('new');
+        }, 10);
 
         todoInput.value = '';
     }
